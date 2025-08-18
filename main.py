@@ -75,20 +75,19 @@ def to_int(num, B):
         num //= B
     return ''.join(reversed(digits))
         
-# ---- MAIN ----
+# main file starts (read inputs, call functions, print result)
 line = sys.stdin.readline().strip()
 I1_str, I2_str, B_str = line.split()
 B = int(B_str)
 
-# Addition (school method, strings in base B)
+# Addition
 addition_result = school_method_addition(I1_str, I2_str, B)
 
-# Multiplication (Karatsuba on ints, then back to base B)
+# Multiplication
 karatsuba_int = karatsuba_multiplication(int(I1_str, B), int(I2_str, B), B)
-
 karatsuba_result = to_int(karatsuba_int, B)
 
-# Division (undergrad → always 0)
+# Division (always 0)
 div = "0"
 
 # Print results
