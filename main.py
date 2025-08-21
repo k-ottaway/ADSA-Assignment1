@@ -46,7 +46,7 @@ def school_method_mult(a, b, B):
 
     # singular digit base case
     if len(a) == 1 and len(b) == 1:
-        return str(int(a) * int(b))
+        return str(int(a, B) * int(b, B))
 
     n = max(len(a), len(b)) # check which number is longer
     k = n // 2 # set the split point
@@ -62,7 +62,7 @@ def school_method_mult(a, b, B):
     # recursively call for each part of equation as given by lecture notes
     p2 = school_method_mult(a1, b1, B)
     p0 = school_method_mult(a0, b0, B)
-    p1 = school_method_mult(str(int(a1) + int(a0)), str(int(b1) + int(b0)), B)
+    p1 = school_method_mult(school_method_add(a1, a0, B), school_method_add(b1, b0, B), B)
 
     # combine the results using school method addition and subtraction
     mult1 = p2 + "0" * (2 * k)
